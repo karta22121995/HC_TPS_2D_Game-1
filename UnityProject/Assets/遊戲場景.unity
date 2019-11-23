@@ -1212,7 +1212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1296395351
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1303,7 +1303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1498019171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1731,6 +1731,8 @@ MonoBehaviour:
   angle: 7.5
   dead: 0
   r2d: {fileID: 2131453246}
+  goScore: {fileID: 1296395350}
+  goGM: {fileID: 1498019170}
 --- !u!50 &2131453246
 Rigidbody2D:
   serializedVersion: 4
