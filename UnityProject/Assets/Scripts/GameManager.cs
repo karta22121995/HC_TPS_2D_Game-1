@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;  // 引用 介面 API
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,14 @@ public class GameManager : MonoBehaviour
     [Header("水管")]
     // GameObject 可以存放場景上的遊戲物件與專案內的預製物
     public GameObject pipe;
+    [Header("遊戲結算畫面")]
+    public GameObject goFinal;
+    [Header("遊戲結束")]
+    public static bool gameover;
+    [Header("目前分數介面")]
+    public Text goScore;
+    [Header("最高分數介面")]
+    public Text HeiScore;
 
     // 修飾詞權限：
     // private 其他類別無法使用
@@ -19,7 +28,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void AddScore()
     {
-
+        score++;
+        // 分數介面.文字內容 = 分數.轉為字串()
+        // ToString() 可以將任何類型轉為字串
+        goScore.text = score.ToString();
     }
     
     /// <summary>
@@ -27,7 +39,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void HeightScore()
     {
-
+        
     }
 
     /// <summary>
@@ -35,6 +47,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void SpawnPipe()
     {
+        if(GameManager.gameover) return;
         print("生水管~");
         // 生成(物件);
         //Instantiate(pipe);
@@ -53,7 +66,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void GameOver()
     {
+        goFinal.SetActive(true);   // 顯示結算畫面
+        gameover = true;           // 遊戲結束 = 是
 
+        // 停止 InvokeRepeating Invoke 的方法
+        // CancelInvoke("SpawnPipe"); 
     }
 
     private void Start()
