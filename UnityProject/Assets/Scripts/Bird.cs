@@ -101,7 +101,9 @@ public class Bird : MonoBehaviour
     // 事件:處發離開 - 物件必須勾選 IsTrigger
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.name == "加分")
+        // dead == true 簡寫 dead
+        // dead != true 簡寫 !dead
+        if (col.name == "加分" && dead !=true)
         {
             aud.PlayOneShot(soundAdd, 1.5f);
             gm.AddScore();
